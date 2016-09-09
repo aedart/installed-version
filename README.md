@@ -1,9 +1,9 @@
 # Installed Version
 
-[![Latest Stable Version](https://poser.pugx.org/aedart/dto/v/stable)](https://packagist.org/packages/aedart/dto)
-[![Total Downloads](https://poser.pugx.org/aedart/dto/downloads)](https://packagist.org/packages/aedart/dto)
-[![Latest Unstable Version](https://poser.pugx.org/aedart/dto/v/unstable)](https://packagist.org/packages/aedart/dto)
-[![License](https://poser.pugx.org/aedart/dto/license)](https://packagist.org/packages/aedart/dto)
+[![Latest Stable Version](https://poser.pugx.org/aedart/installed-version/v/stable)](https://packagist.org/packages/aedart/installed-version)
+[![Total Downloads](https://poser.pugx.org/aedart/installed-version/downloads)](https://packagist.org/packages/aedart/installed-version)
+[![Latest Unstable Version](https://poser.pugx.org/aedart/installed-version/v/unstable)](https://packagist.org/packages/aedart/installed-version)
+[![License](https://poser.pugx.org/aedart/installed-version/license)](https://packagist.org/packages/aedart/installed-version)
 
 Utility that attempts to identify what version of a given package you have installed
 
