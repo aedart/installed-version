@@ -1,5 +1,6 @@
 # Installed Version
 
+[![Build Status](https://travis-ci.org/aedart/installed-version.svg?branch=master)](https://travis-ci.org/aedart/installed-version)
 [![Latest Stable Version](https://poser.pugx.org/aedart/installed-version/v/stable)](https://packagist.org/packages/aedart/installed-version)
 [![Total Downloads](https://poser.pugx.org/aedart/installed-version/downloads)](https://packagist.org/packages/aedart/installed-version)
 [![Latest Unstable Version](https://poser.pugx.org/aedart/installed-version/v/unstable)](https://packagist.org/packages/aedart/installed-version)
