@@ -35,7 +35,7 @@ $reader = new Reader();
 
 echo $reader->getVersion('amce/rocket-computer');
 
-// Example output 1.22.4 ... 1.0.x-dev, or Unknown cannot find / read package
+// Example output 1.22.4 ... 1.0.x-dev, or Unknown if unable to find / read package version
 ```
 
 The default `Reader` component attempts to fetch the version from composer's `installed.json` file, which should be found inside your local or global vendor.
