@@ -1,7 +1,6 @@
 <?php
-namespace Aedart\Installed\Version\Contracts;
 
-use Aedart\Model\Contracts\Arrays\LocationsAware;
+namespace Aedart\Installed\Version\Contracts;
 
 /**
  * <h1>Installed Version Reader Interface</h1>
@@ -32,7 +31,6 @@ interface Reader extends LocationsAware
      *
      * Method will search in the provided locations
      *
-     * @see \Aedart\Model\Contracts\Arrays\LocationsAware::getLocations
      * @see \Aedart\Installed\Version\Contracts\Reader::DEFAULT_VERSION
      *
      * @param string $package Composer package
@@ -40,5 +38,5 @@ interface Reader extends LocationsAware
      * @return string Returns version OR default version if unable
      *                to read package information.
      */
-    public function getVersion($package);
+    public function getVersion(string $package): string ;
 }

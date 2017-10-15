@@ -1,8 +1,10 @@
 <?php
+declare(strict_types=1);
+
 namespace Aedart\Installed\Version;
 
 use Aedart\Installed\Version\Contracts\Reader as ReaderInterface;
-use Aedart\Model\Traits\Arrays\LocationsTrait;
+use Aedart\Installed\Version\Traits\LocationsTrait;
 use Composer\Factory as ComposerFactory;
 
 /**
@@ -32,7 +34,7 @@ class Reader implements ReaderInterface
     /**
      * {@inheritdoc}
      */
-    public function getVersion($package)
+    public function getVersion(string $package) : string
     {
         $locations = $this->getLocations();
 
@@ -62,13 +64,29 @@ class Reader implements ReaderInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getDefaultLocations() : ?array
+    {
+        $composerConfig = ComposerFactory::createConfig(null, getcwd());
+
+        return [
+            // Local vendor dir
+            $composerConfig->get('vendor-dir') . '/composer/',
+
+            // Global vendor dir
+            ComposerFactory::createConfig(null, $composerConfig->get('home'))->get('vendor-dir') . '/composer/'
+        ];
+    }
+
+    /**
      * Attempts to read the version from the given location
      *
      * @param string $location
      * @param string $package
      * @return null|string Version or null if no version found for package
      */
-    protected function readVersionFromLocation($location, $package)
+    protected function readVersionFromLocation(string $location, string $package) : ?string
     {
         // Get the installed packages
         $installed = $this->getInstalledPackages($location);
@@ -95,9 +113,9 @@ class Reader implements ReaderInterface
      * @param array $source Composer file or installed package
      * @param string $package Name of package we are looking for
      *
-     * @return null|string Version or null if not found
+     * @return string|null Version or null if not found
      */
-    protected function readFromSource($source, $package)
+    protected function readFromSource(array $source, string $package) : ?string
     {
         // Abort if no name property
         if(!isset($source['name'])){
@@ -137,7 +155,7 @@ class Reader implements ReaderInterface
      *
      * @return array
      */
-    protected function getInstalledPackages($location)
+    protected function getInstalledPackages(string $location) : array
     {
         if(isset($this->installedPackages[$location])){
             return $this->installedPackages[$location];
@@ -158,24 +176,8 @@ class Reader implements ReaderInterface
      *
      * @return array
      */
-    protected function loadJsonFile($file)
+    protected function loadJsonFile(string $file) : array
     {
         return json_decode(file_get_contents($file), true);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultLocations()
-    {
-        $composerConfig = ComposerFactory::createConfig(null, getcwd());
-
-        return [
-            // Local vendor dir
-            $composerConfig->get('vendor-dir') . '/composer/',
-
-            // Global vendor dir
-            ComposerFactory::createConfig(null, $composerConfig->get('home'))->get('vendor-dir') . '/composer/'
-        ];
     }
 }
