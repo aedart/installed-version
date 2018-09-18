@@ -1,4 +1,6 @@
-# Installed Version
+# Deprecated - Installed Version
+
+Please use [Pretty-Package-Versions](https://github.com/Jean85/pretty-package-versions) instead
 
 [![Build Status](https://travis-ci.org/aedart/installed-version.svg?branch=master)](https://travis-ci.org/aedart/installed-version)
 [![Latest Stable Version](https://poser.pugx.org/aedart/installed-version/v/stable)](https://packagist.org/packages/aedart/installed-version)

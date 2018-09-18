@@ -1,4 +1,5 @@
 {
+  "abandoned": "jean85/pretty-package-versions",
   "name": "aedart/installed-version",
   "description": "Utility that attempts to identify what version of a given package you have installed",
   "keywords": [
